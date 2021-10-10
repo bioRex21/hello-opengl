@@ -1,0 +1,7 @@
+{
+  "files.associations": {
+    "*.as": "actionscript",
+    "*.jsx": "javascript",
+    "sstream": "cpp"
+  }
+}

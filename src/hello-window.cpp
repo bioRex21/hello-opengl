@@ -3,6 +3,7 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <shaders/shader.h>
+#include "WinMan.hpp"
 
 #include <cmath>
 #include <iostream>
@@ -16,6 +17,7 @@ const unsigned int SCR_HEIGHT = 600;
 
 int main()
 {
+    WinMan *wman = new WinMan();
     // glfw: initialize and configure
     // ------------------------------
     glfwInit();

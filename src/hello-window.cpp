@@ -232,7 +232,7 @@ unsigned int indices[] = {  // note that we start from 0!
 
         // OUR DRAWING
       
-
+model = glm::rotate(model, (float)glfwGetTime() * glm::radians(0.025f), glm::vec3(0.5f, 1.0f, 0.0f));
         int modelLoc = glGetUniformLocation(ourShader.ID, "model");
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
@@ -241,6 +241,8 @@ unsigned int indices[] = {  // note that we start from 0!
 
         int projectionLoc = glGetUniformLocation(ourShader.ID, "projection");
         glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(projection));
+
+        
 
 
        glActiveTexture(GL_TEXTURE0); // activate the texture unit first before binding texture

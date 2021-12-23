@@ -4,6 +4,10 @@
 #include <GLFW/glfw3.h>
 #include <shaders/shader.h>
 
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 #include <cmath>
 #include <iostream>
 
@@ -164,6 +168,14 @@ unsigned int indices[] = {  // note that we start from 0!
     glUniform1i(glGetUniformLocation(ourShader.ID, "texture1"), 0);
     // or set it via the texture class
     ourShader.setInt("texture2", 1);
+
+    
+glm::mat4 trans = glm::mat4(1.0f);
+trans = glm::rotate(trans, glm::radians(180.0f), glm::vec3(0.0, 0.0, 1.0));
+trans = glm::scale(trans, glm::vec3(0.5, 0.5, 0.5));  
+
+unsigned int transformLoc = glGetUniformLocation(ourShader.ID, "transform");
+glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
     // render loop
     // -----------
     while (!glfwWindowShouldClose(window))
